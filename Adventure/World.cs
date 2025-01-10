@@ -9,7 +9,6 @@ namespace Adventure
 {
     public class World
     {
-        public List<BaseRoom> rooms = new List<BaseRoom>();
         public BaseRoom CurrentRoom { get; private set; }
 
         public World() 
@@ -19,15 +18,12 @@ namespace Adventure
 
             lobby.RegisterNeighbour(corridor);
 
-
-            rooms.AddRange(new BaseRoom[] { lobby, corridor });
-
-            CurrentRoom = rooms[0];
+            CurrentRoom = lobby;
         }
 
         public string Intro { get; } = @"
 How did you end up here? You don't really know. Maybe you fell, maybe someone pushed you.
-One thing is certain, you need to GET OUT OF HERE!
+One thing is certain, you need to [red italic]GET OUT OF HERE![/]
 ";
     }
 }
